@@ -4,12 +4,9 @@
 
 <style>
 article div:nth-of-type(2) {
- background-color:#374956;
  background-image:url("/gate.png");
  background-position:center;
- background-size:cover;
- margin: -30px -30px -30px 10px;
- padding:-10px;
+ background-size: cover;
 }
 
 article {
@@ -24,6 +21,7 @@ article {
 
 </style>
 
+<div class="container">
 <article class="grid">
   <div>
     <hgroup>
@@ -40,3 +38,4 @@ article {
   </div>
   <div></div>
 </article>
+</div>

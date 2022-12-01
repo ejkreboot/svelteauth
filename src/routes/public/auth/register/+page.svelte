@@ -4,12 +4,9 @@
 
 <style>
 article div:nth-of-type(2) {
- background-color:#374956;
  background-image:url("/cat.jpg");
  background-position:center;
  background-size:cover;
- margin: -30px -30px -30px 10px;
- padding:-10px;
 }
 
 article {

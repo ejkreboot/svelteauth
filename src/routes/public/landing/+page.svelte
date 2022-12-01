@@ -17,4 +17,4 @@ This is where we put some interesting content.
 <section>
     <h2>Some more content</h2>
     This is where we put some even more interesting content.
-    </section>
+</section>

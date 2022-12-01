@@ -1,4 +1,6 @@
-# Auth example with sveltekit
+# Simple auth example with sveltekit
+
+![screenshot](./static/ss.jpg)
 
 ## No warranty expressed or implied
 

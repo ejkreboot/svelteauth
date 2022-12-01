@@ -10,13 +10,17 @@
     height: 40px;
     padding: 0px 20px 0px 20px;
 }
+
+.top-nav {
+    height: 50px;
+}
 </style>
 
 <svelte:head>
 <title>Auth Example</title>
 </svelte:head>
 
-<nav class="container-fluid">
+<nav class="container-fluid top-nav">
     <ul>
         <li><strong>Simple Auth</strong></li>
     </ul>

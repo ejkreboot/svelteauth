@@ -25,7 +25,7 @@ Please open issues to identify errors or shortcomings in this example.
 * Only hashed password saved in database.
 * sqlite user database -- no external database required
 * Any routes added under /src/routes/public are (you guessed it) public.
-* Any route added under /src/routes/protected are (wait for it) password protected.
+* Any routes added under /src/routes/protected are (wait for it) password protected.
 * Any routes added under /src/routes/protected/admin are (...) only accessible by users of the "admin" group.
 * init-users.js script is provided to create the database and Users table and generate some demo users.
 * Built with 'pico.css' to keep it simple but not too painful on the eyes

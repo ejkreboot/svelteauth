@@ -47,8 +47,6 @@ export const handle = async ({ event, resolve }) => {
         where: { token: session } 
     });
 
-  console.log(user);
-
   if (user) {
     const regex = /^\/private\/admin/g;
     const admin = path.match(regex);

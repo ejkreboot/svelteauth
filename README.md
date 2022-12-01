@@ -20,7 +20,7 @@ Please open issues to identify errors or shortcomings in this example.
 ## Usage
 
 ```
-git clone https://github.com/ejkrebook/svelteauth
+git clone https://github.com/ejkreboot/svelteauth
 cd svelteauth
 npm install
 node init-users.js

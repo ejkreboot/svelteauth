@@ -26,7 +26,7 @@ npm install
 node init-users.js
 npm run dev
 ```
-The point your browser to [http://localhost:5173/](http://localhost:5173/).
+Then point your browser to [http://localhost:5173/](http://localhost:5173/).
 
 ## Basic design.
 

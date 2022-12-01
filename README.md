@@ -119,4 +119,4 @@ but this could be adjusted to your liking. See 'src/routes/auth/login/+page.serv
 
 ## Credits
 
-Thanks to [cocoparisienne](https://pixabay.com/users/cocoparisienne-127419/), [Argus398](https://pixabay.com/users/argus398-343496/), [pixel2013](https://pixabay.com/users/pixel2013-2364555/), and [Claire05](https://pixabay.com/users/claire05-9411250/) from [Pixabay](https://pixabay.com) for the royalty free, no cost images used in this project.
+Thanks to [cocoparisienne](https://pixabay.com/users/cocoparisienne-127419/), [Argus398](https://pixabay.com/users/argus398-343496/), [pixel2013](https://pixabay.com/users/pixel2013-2364555/), [ktphotography](https://pixabay.com/users/ktphotography-5847971/), and [Claire05](https://pixabay.com/users/claire05-9411250/) from [Pixabay](https://pixabay.com) for the royalty free, no cost images used in this project.

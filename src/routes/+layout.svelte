@@ -10,13 +10,13 @@
     height: 40px;
     padding: 0px 20px 0px 20px;
 }
-
 </style>
+
 <svelte:head>
 <title>Auth Example</title>
 </svelte:head>
 
-<nav>
+<nav class="container-fluid">
     <ul>
         <li><strong>Simple Auth</strong></li>
     </ul>
@@ -36,6 +36,6 @@
         {/if}
     </ul>
   </nav>
-<main>
+<main class = "container">
 <slot />
 </main>

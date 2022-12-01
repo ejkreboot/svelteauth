@@ -46,13 +46,17 @@ npm run dev
 ```
 Then point your browser to [http://localhost:5173/](http://localhost:5173/).
 
-**NOTE:** The '/public/auth/register' and '/public/auth/forgot' endpoints require an SMTP server to 
-send confirmation emails. Provide your SMTP details in 'src/lib/config.js'. A template is provided 
-as 'src/lib/config.js.ex'. (This is to avoid storing actual credentials on github, as config.js is
+**NOTE:** The `/public/auth/register` and `/public/auth/forgot` endpoints require an SMTP server to 
+send confirmation emails. Provide your SMTP details in `src/lib/config.js`. A template is provided 
+as `src/lib/config.js.ex`. (This is to avoid storing actual credentials on github, as config.js is
 gitignored in this repo). This template works with [mailtrap.io](https://mailtrap.io) which is a 
 fabulous tool for prototyping and testing, and you can get started for free (actually, given their 
 generous limits, you could not only get started but actuall go a long ways for free). Other SMTP 
 providers may require additional information to work with [nodemailer](https://nodemailer.com).
+
+You can then add whatever content you like under the `public` and `protected` directories, and 
+customize the `src/routes/public/landing` and `src/routes/protected/landing` pages to contain content
+relevant to your project.
 
 ## Basic design
 

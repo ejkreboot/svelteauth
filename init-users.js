@@ -1,29 +1,20 @@
-import { Sequelize, Model, DataTypes } from 'sequelize';
-import { nanoid } from 'nanoid'
-import * as bcrypt from 'bcrypt'
+import { nanoid } from 'nanoid';
+import { User } from './src/lib/server/user.js';
+import * as bcrypt from 'bcrypt';
+import * as fs from 'fs';
+import { exit } from 'process';
 
-let path = "data/users.sqlite";
-let sequelize = new Sequelize(
-    {    
-        "logging": false,
-        "dialect": "sqlite",
-        "storage": path
+var args = process.argv.slice(2);
+
+if(fs.existsSync("data/users.sqlite")) {
+    if(args[0] == "-f") {
+        console.log("File exists...overwriting due to -f flag.");
+        fs.unlink("data/users.sqlite", (e) => e ? console.log(e) : "" );
+    } else {
+        console.log("File exists. Use node init-users.js -f to overwrite.");
+        exit();    
     }
-);
-
-
-const User = sequelize.define('User', {
-    id: {
-        type: DataTypes.UUID,
-        primaryKey: true
-    },
-    email: DataTypes.TEXT,
-    token: DataTypes.TEXT,
-    password: DataTypes.TEXT,
-    group: DataTypes.TEXT,
-    expired: DataTypes.BOOLEAN,
-    admin: DataTypes.BOOLEAN
-});
+}
 
 async function add_user(e, p, g) {
     await User.sync();
@@ -33,10 +24,13 @@ async function add_user(e, p, g) {
         email: e,
         id: uuid,
         token: null,
+        status: "verified",
         password: pwd,
+        reset: null,
+        newpassword: null,
+        key: nanoid(6),
         group: g, 
-        expired: false,
-        admin: false
+        expired: false
     });
     return uuid;
 }

@@ -1,5 +1,18 @@
 # Auth example with sveltekit
 
+## No warranty expressed or implied
+
+This code is provided for educational purposes only. The lesson embedded in this code may very well be "this is how not 
+to do things." I make no assertions about the security of this code. I have made reasonable effort to follow best practices, 
+but I am not a security expert, and make no claims that there are no backdoors or loopholes in this code creating 
+vulnerabilities. Use at your own risk.
+
+Likely this code is just fine as a starting point for protecting low value assets like an online course or such. Using 
+this code to protect high value assets (financial data, personal info, etc.) without expert scrutiny and assistance would 
+be just crazy.
+
+## Summary
+
 This is a self contained svletekit web site with public and protected routes combined with session token based user 
 authentication. There are [other](https://joyofcode.xyz/sveltekit-authentication-using-cookies) [examples](https://blog.logrocket.com/authentication-svelte-using-cookies/) on the web, which are excellent.  But each seemed to leave out one or more details 
 that made this topic challenging for my pea sized intellect. So I rolled my own example here mainly for self education 
@@ -16,6 +29,8 @@ Please open issues to identify errors or shortcomings in this example.
 * Any routes added under /src/routes/protected/admin are (...) only accessible by users of the "admin" group.
 * init-users.js script is provided to create the database and Users table and generate some demo users.
 * Built with 'pico.css' to keep it simple but not too painful on the eyes
+* Includes email validation of new users
+* Includes email validation of password reset
 
 ## Usage
 
@@ -28,7 +43,14 @@ npm run dev
 ```
 Then point your browser to [http://localhost:5173/](http://localhost:5173/).
 
-## Basic design.
+**NOTE:** The '/public/auth/register' and '/public/auth/forgot' endpoints require an SMTP server to 
+send confirmation emails. Provide your SMTP details in 'src/lib/config.js'. A template is provided 
+as 'src/lib/config.js.ex'. (This is to avoid storing actual credentials on github, as config.js is
+gitignored in this repo). This template works with [mailtrap.io](https://mailtrap.io) which is a 
+fabulous tool for prototyping and testing, and you can get started for free (actually, given their 
+generous limits, you could not only get started but actuall go a long ways for free). 
+
+## Basic design
 
 Requests are caught by 'hooks.server.js'. Requests for public routes are passwed through. Requests for 
 Private routes are only passed if there is a session cookie with a token that matches a user token 
@@ -92,7 +114,6 @@ but this could be adjusted to your liking. See 'src/routes/auth/login/+page.serv
 
 ## TO DO
 
-No user administration or registration is implemented yet. Presently you need to "manually" (i.e. with 
-a script such as the provided 'init-users.js') create entries in `data/users.sqlite`. I need to 
-implement a registration page (ideally with email confirmation) and user admin page at some point. 
+* It would be nice to have a user administration dashboard to add/edit/remove users.
+
 

@@ -1,27 +1,5 @@
-import { Sequelize, Model, DataTypes } from 'sequelize';
-import { invalid, redirect } from '@sveltejs/kit';
-
-let path = "data/users.sqlite";
-let sequelize = new Sequelize(
-    {    
-        "logging": false,
-        "dialect": "sqlite",
-        "storage": path,
-        "query": {"raw": true}
-    }
-);
-const User = sequelize.define('User', {
-  id: {
-      type: DataTypes.UUID,
-      primaryKey: true
-  },
-  email: DataTypes.TEXT,
-  token: DataTypes.TEXT,
-  password: DataTypes.TEXT,
-  group: DataTypes.TEXT,
-  expired: DataTypes.BOOLEAN,
-  admin: DataTypes.BOOLEAN
-});
+import { redirect } from '@sveltejs/kit';
+import { User } from '$lib/server/user.js';
 
 export const handle = async ({ event, resolve }) => {
   const session = event.cookies.get('session')
@@ -64,7 +42,6 @@ export const handle = async ({ event, resolve }) => {
     // requested a protected route invalid token...
     throw redirect(403, '/public/auth/login');
   }
-
 
   return await resolve(event);
 }

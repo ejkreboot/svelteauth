@@ -1,29 +1,6 @@
-import { invalid, redirect } from '@sveltejs/kit';
-import { Sequelize, Model, DataTypes } from 'sequelize';
-import { nanoid } from 'nanoid'
+import { redirect } from '@sveltejs/kit';
 import * as bcrypt from 'bcrypt'
-
-const path = "data/users.sqlite";
-const sequelize = new Sequelize(
-    {    
-        "logging": false,
-        "dialect": "sqlite",
-        "storage": path
-    }
-);
-
-const User = sequelize.define('User', {
-    id: {
-        type: DataTypes.UUID,
-        primaryKey: true
-    },
-    email: DataTypes.TEXT,
-    token: DataTypes.TEXT,
-    password: DataTypes.TEXT,
-    group: DataTypes.TEXT,
-    expired: DataTypes.BOOLEAN,
-    admin: DataTypes.BOOLEAN
-});
+import { User } from '$lib/server/user.js';
 
 export const actions = {
     default: async ({ request, cookies }) => {
@@ -33,7 +10,7 @@ export const actions = {
         const user = await User.findOne({where: { email: email } });
         const passwordMatch = user && (await bcrypt.compare(password, user.password));
 
-        if(passwordMatch) {
+        if(passwordMatch && user.status == "verified") {
             const authToken = crypto.randomUUID();
             await User.update(
                 { 

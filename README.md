@@ -1,6 +1,7 @@
 # Auth example with sveltekit
 
-There are [other](https://joyofcode.xyz/sveltekit-authentication-using-cookies) [examples](https://blog.logrocket.com/authentication-svelte-using-cookies/) on the web, which are excellent.  But each seemed to leave out one or more details 
+This is a self contained svletekit web site with public and protected routes combined with session token based user 
+authentication. There are [other](https://joyofcode.xyz/sveltekit-authentication-using-cookies) [examples](https://blog.logrocket.com/authentication-svelte-using-cookies/) on the web, which are excellent.  But each seemed to leave out one or more details 
 that made this topic challenging for my pea sized intellect. So I rolled my own example here mainly for self education 
 purposes. I wonder what I left out?
 

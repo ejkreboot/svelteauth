@@ -31,6 +31,7 @@ Please open issues to identify errors or shortcomings in this example.
 * Any routes added under /src/routes/protected/admin are (...) only accessible by users of the "admin" group.
 * init-users.js script is provided to create the database and Users table and generate some demo users.
 * Built with 'pico.css' to keep it simple but not too painful on the eyes
+* Thanks to 'pico.css', mobile-friendly responsive layout.
 * Includes email validation of new users
 * Includes email validation of password reset
 

@@ -48,7 +48,8 @@ send confirmation emails. Provide your SMTP details in 'src/lib/config.js'. A te
 as 'src/lib/config.js.ex'. (This is to avoid storing actual credentials on github, as config.js is
 gitignored in this repo). This template works with [mailtrap.io](https://mailtrap.io) which is a 
 fabulous tool for prototyping and testing, and you can get started for free (actually, given their 
-generous limits, you could not only get started but actuall go a long ways for free). 
+generous limits, you could not only get started but actuall go a long ways for free). Other SMTP 
+providers may require additional information to work with [nodemailer](https://nodemailer.com).
 
 ## Basic design
 
@@ -116,4 +117,6 @@ but this could be adjusted to your liking. See 'src/routes/auth/login/+page.serv
 
 * It would be nice to have a user administration dashboard to add/edit/remove users.
 
+## Credits
 
+Thanks to [cocoparisienne](https://pixabay.com/users/cocoparisienne-127419/), [Argus398](https://pixabay.com/users/argus398-343496/), [pixel2013](https://pixabay.com/users/pixel2013-2364555/), and [Claire05](https://pixabay.com/users/claire05-9411250/) from [Pixabay](https://pixabay.com) for the royalty free, no cost images used in this project.

@@ -4,23 +4,14 @@
 
 <style>
     
-.link-button {
-    cursor:pointer;
-    margin:30px 0px 0px 0px;
-    height: 40px;
-    padding: 0px 20px 0px 20px;
-}
 
-.top-nav {
-    height: 50px;
-}
+
 </style>
 
 <svelte:head>
 <title>Auth Example</title>
 </svelte:head>
-
-<nav class="container-fluid top-nav">
+<nav class="container-fluid">
     <ul>
         <li><strong>Simple Auth</strong></li>
     </ul>
@@ -33,13 +24,19 @@
         {#if data.email}
             {#if data.group == "admin"}
             <li><a href="/protected/admin">Admin</a></li>
-            {:else}
-            <li>You are not an admin</li>
+            <li><a href="/protected/admin/edit">Edit Cards</a></li>
             {/if}
-            <li><form action="/public/auth/logout" method="POST"><button class=link-button type="submit">Log out</button></form></li>
+            <li><a href="/public/landing"
+                 on:click={() => document.getElementById("logout").submit()}>Logout</a></li>
+            <form id="logout" style="display: none" 
+                      action="/public/auth/logout" 
+                      method="POST">
+                </form>
+            
         {/if}
     </ul>
-  </nav>
+</nav>
+
 <main class = "container">
 <slot />
 </main>

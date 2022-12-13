@@ -39,8 +39,13 @@ export const handle = async ({ event, resolve }) => {
       group: user.group
     }
   } else {
-    // requested a protected route invalid token...
-    throw redirect(403, '/public/auth/login');
+    const regex = /^\/public/g;
+    const pub = path.match(regex);
+    if(!pub) {
+      // requested a protected route invalid token...
+      throw redirect(307, '/public/auth/login');
+    }
+    // stale session cookie but public route so ok to continue...
   }
 
   return await resolve(event);
